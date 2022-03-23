@@ -27,9 +27,10 @@ void interfaceInit()
 int main(int argc, char *argv[])
 {
     XCoreApplication a(argc, argv);
-
+    //初始化系统
     sysInit();
     interfaceInit();
+
 
     PillarManager manager;
     manager.createPillar();
