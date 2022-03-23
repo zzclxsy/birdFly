@@ -9,13 +9,15 @@ public:
 	Pillar(int width);
 	Pillar(int width, int interval);
 	~Pillar();
-	void setPos(const Point &pos);
-	void draw();
+    void setOriginPos(const Point &pos);
+    void setSpeed(int speed);
+    void move();
 	void setInterval(int interval);
 	void setWidth(int width);
-
+    bool getDieStatus();
 private:
 	void randomHeight();
+    void draw();
 
 private:
 	Point m_originPos;
@@ -23,5 +25,7 @@ private:
 	int m_width;
 	int m_interval;
 	int m_height;
+    int m_speed;
+    bool mb_isDie;
 };
 #endif
