@@ -2,6 +2,7 @@
 #define PILLAR_H
 
 #include "Point.h"
+#include "Rect.h"
 class Pillar
 {
 public:
@@ -15,6 +16,9 @@ public:
 	void setInterval(int interval);
 	void setWidth(int width);
     bool getDieStatus();
+    Rect getRectTop();
+    Rect getRectBottom();
+
 private:
 	void randomHeight();
     void draw();

@@ -5,6 +5,7 @@
 #include "./birdFly/Point.h"
 #include "./birdFly/Pillar.h"
 #include "./birdFly/PillarManager.h"
+#include "./birdFly/Bird.h"
 void interfaceInit()
 {
     auto printFrame = []() {
@@ -31,9 +32,11 @@ int main(int argc, char *argv[])
     sysInit();
     interfaceInit();
 
-
+    //创建柱子
     PillarManager manager;
     manager.createPillar();
+    //创建小鸟
+    Bird bird(Point(20,20));
 
     XTimerEvent PillarCreateTimer;
     PillarCreateTimer.setTimer(3000, [&](){
@@ -41,13 +44,17 @@ int main(int argc, char *argv[])
     });
     PillarCreateTimer.start();
 
-
     XTimerEvent PillarMoveTimer;
     PillarMoveTimer.setTimer(100, [&](){
         manager.move();
     });
     PillarMoveTimer.start();
 
+    XTimerEvent birdMoveTimer;
+    birdMoveTimer.setTimer(100, [&](){
+        bird.move();
+    });
+    birdMoveTimer.start();
 
     a.exec();
 }

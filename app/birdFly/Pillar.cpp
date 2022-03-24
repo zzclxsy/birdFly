@@ -159,6 +159,18 @@ bool Pillar::getDieStatus()
     return mb_isDie;
 }
 
+Rect Pillar::getRectTop()
+{
+    return Rect(m_originPos, m_width, m_height);
+}
+
+Rect Pillar::getRectBottom()
+{
+    return Rect(Point(m_originPos.x(), m_originPos.y() + m_interval + m_height)
+                , m_width
+                , HEIGHT - m_interval - m_height - 4);
+}
+
 void Pillar::randomHeight()
 {
 	srand((int)time(0));
