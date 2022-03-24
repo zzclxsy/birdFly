@@ -13,6 +13,7 @@ public:
 	Point &operator+(const Point &pos);
 	Point &operator-(const Point &pos);
 	bool operator==(const Point &pos);
+    bool operator<(const Point &pos);
 	friend std::ostream & operator<< (std::ostream & os, const Point & a);    // PointÊä³öÖØÔØ 
 	
 	int x() { return m_x;}

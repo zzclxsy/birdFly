@@ -1,6 +1,7 @@
 #include "../Framework/XCoreApplication.h"
 #include "../Framework/XEvent/XTimerEvent.h"
 #include <iostream>
+#include<conio.h>
 #include "./birdFly/OSFunc.h"
 #include "./birdFly/Point.h"
 #include "./birdFly/Pillar.h"
@@ -53,8 +54,27 @@ int main(int argc, char *argv[])
     XTimerEvent birdMoveTimer;
     birdMoveTimer.setTimer(100, [&](){
         bird.move();
+        //检测碰撞
+        if (manager.checkCrash(bird.getBirdRect()))
+        {
+            gotoxy(0,0);
+            system("pause");
+        }
     });
     birdMoveTimer.start();
+
+    XTimerEvent birdSpaceCheckTimer;
+    birdSpaceCheckTimer.setTimer(10, [&](){
+        if (kbhit())
+        {
+            char ch = getch();
+            if (ch == ' ')
+            {
+                bird.setJumpHeight(5);
+            }
+        }
+    });
+    birdSpaceCheckTimer.start();
 
     a.exec();
 }

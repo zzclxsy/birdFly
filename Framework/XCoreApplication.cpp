@@ -24,6 +24,11 @@ void XCoreApplication::exec()
     }
 }
 
+void XCoreApplication::quit()
+{
+    m_isQuit = true;
+}
+
 void XCoreApplication::addEvent(XEvent *event)
 {
     m_allEvent.push_back(event);

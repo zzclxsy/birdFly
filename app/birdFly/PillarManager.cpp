@@ -1,7 +1,6 @@
 #include "PillarManager.h"
 #include "./birdFly/OSFunc.h"
 
-
 PillarManager::PillarManager()
 {
 }
@@ -34,4 +33,18 @@ void PillarManager::move()
     {
         pill->move();
     }
+}
+
+bool PillarManager::checkCrash(Rect birdRect)
+{
+    for(Pillar *pill:m_allPillar)
+    {
+        if (pill->getRectBottom().contain(birdRect) ||
+                pill->getRectTop().contain(birdRect))
+        {
+            return true;
+        }
+    }
+
+    return false;
 }

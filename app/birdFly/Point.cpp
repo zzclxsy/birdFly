@@ -51,7 +51,15 @@ bool Point::operator==(const Point & pos)
 {
 	if (this->m_x == pos.m_x && this->m_y == pos.m_y)
 		return true;
-	return false;
+    return false;
+}
+
+bool Point::operator<(const Point &pos)
+{
+    if (this->m_x < pos.m_x && this->m_y < pos.m_y)
+        return true;
+
+    return false;
 }
 
 std::ostream & operator<<(std::ostream & os, const Point & a)

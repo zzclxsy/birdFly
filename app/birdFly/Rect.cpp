@@ -1,5 +1,6 @@
 #include "Rect.h"
-
+#include <iostream>
+#include "OSFunc.h"
 Rect::Rect()
 {
 
@@ -23,13 +24,18 @@ Rect &Rect::operator=(const Rect &rect)
 
 bool Rect::contain(Rect &rect)
 {
-    if ((this->m_leftTop.x()+m_w) < (rect.m_leftTop.x())
-           || (this->m_leftTop.y()+m_h) > (rect.m_leftTop.y())
-            ||(rect.m_leftTop.x()+rect.m_w) < (this->m_leftTop.x())
-            ||(rect.m_leftTop.y()+rect.m_h) > (this->m_leftTop.y()))
-    {
-        return false;
-    }
+    Point p1(rect.m_leftTop);
+    Point p2(rect.m_leftTop.x() + rect.m_w, rect.m_leftTop.y() +rect.m_h);
 
-    return true;
+    Point p3(this->m_leftTop);
+    Point p4(this->m_leftTop.x() + this->m_w, this->m_leftTop.y() +this->m_h);
+
+    Point pM((p1.x() > p3.x()?p1.x():p3.x()),
+             (p1.y() > p3.y()?p1.y():p3.y()));
+
+    Point pN((p2.x() < p4.x()?p2.x():p4.x()),
+             (p2.y() < p4.y()?p2.y():p4.y()));
+
+
+    return pM < pN;
 }

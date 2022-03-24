@@ -2,6 +2,7 @@
 #define PILLARMANAGER_H
 #include <vector>
 #include "Pillar.h"
+#include "Rect.h"
 class PillarManager
 {
 public:
@@ -9,6 +10,7 @@ public:
     ~PillarManager();
     void createPillar();
     void move();
+    bool checkCrash(Rect birdRect);
 
 private:
     std::vector<Pillar *> m_allPillar;
