@@ -7,6 +7,8 @@ class Bird
 {
 public:
     Bird(Point originPos);
+    Bird(){}
+    void setOriginPos(Point originPos);
     void setJumpHeight(int height);
     void move();
     Rect getBirdRect();

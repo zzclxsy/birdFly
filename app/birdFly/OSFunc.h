@@ -10,4 +10,6 @@ void gotoxy(int x, int y);
 
 void msleep(int ms);
 
+void clear();
+
 #endif

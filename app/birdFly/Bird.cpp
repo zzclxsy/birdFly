@@ -7,6 +7,11 @@ Bird::Bird(Point originPos)
     m_jumpHeight = 5;
 }
 
+void Bird::setOriginPos(Point originPos)
+{
+    m_originPos = originPos;
+}
+
 void Bird::setJumpHeight(int height)
 {
     m_jumpHeight = height;

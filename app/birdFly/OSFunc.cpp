@@ -35,6 +35,11 @@ void msleep(int ms)
 {
 	Sleep(ms);
 }
+
+void clear()
+{
+    system("cls");
+}
 #elif _UNIX
 #endif 
 
