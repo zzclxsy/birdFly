@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     PillarCreateTimer.start();
 
     XTimerEvent PillarMoveTimer;
-    PillarMoveTimer.setTimer(100, [&](){
+    PillarMoveTimer.setTimer(50, [&](){
         manager.move();
     });
     PillarMoveTimer.start();
