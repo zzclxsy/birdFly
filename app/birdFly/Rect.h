@@ -9,6 +9,8 @@ public:
     Rect(Point leftTop, int w, int h);
     Rect &operator= (const Rect &rect);
 
+    Point getTopLeft();
+    Point getBottomLeft();
     bool contain(Rect &rect);
 
 private:

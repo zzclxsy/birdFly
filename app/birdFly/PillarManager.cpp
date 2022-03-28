@@ -48,3 +48,12 @@ bool PillarManager::checkCrash(Rect birdRect)
 
     return false;
 }
+
+void PillarManager::clear()
+{
+    for(Pillar *pill:m_allPillar)
+    {
+        delete pill;
+    }
+    m_allPillar.clear();
+}

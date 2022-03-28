@@ -12,4 +12,5 @@ void msleep(int ms);
 
 void clear();
 
+void setConsoleCursor(bool show);
 #endif

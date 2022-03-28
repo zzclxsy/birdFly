@@ -17,7 +17,10 @@ public:
 
 private:
     void gameOver();
-
+    void createPillar();
+    void movePillar();
+    void moveBird();
+    void keyboardCheck();
 private:
     XTimerEvent m_PillarCreateTimer;
     XTimerEvent m_PillarMoveTimer;

@@ -22,6 +22,16 @@ Rect &Rect::operator=(const Rect &rect)
     return *this;
 }
 
+Point Rect::getTopLeft()
+{
+    return m_leftTop;
+}
+
+Point Rect::getBottomLeft()
+{
+    return Point(m_leftTop.x(),m_leftTop.y() + m_h);
+}
+
 bool Rect::contain(Rect &rect)
 {
     Point p1(rect.m_leftTop);

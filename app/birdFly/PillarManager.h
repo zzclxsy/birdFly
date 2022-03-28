@@ -11,6 +11,7 @@ public:
     void createPillar();
     void move();
     bool checkCrash(Rect birdRect);
+    void clear();
 
 private:
     std::vector<Pillar *> m_allPillar;
