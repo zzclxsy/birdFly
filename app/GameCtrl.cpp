@@ -24,6 +24,7 @@ GameCtrl::GameCtrl()
 {
     m_manager.createPillar();
     m_bird.setOriginPos(Point(20,20));
+    m_score = 0;
 }
 
 void GameCtrl::init()
@@ -31,25 +32,26 @@ void GameCtrl::init()
     sysInit();
     interfaceInit();
 
-    //Öù×Ó3Ãë²úÉúÒ»¸ö
+    //æŸ±å­3ç§’äº§ç”Ÿä¸€ä¸ª
     m_PillarCreateTimer.setTimer(3000,std::bind(&GameCtrl::createPillar,this));
     m_PillarCreateTimer.start();
 
-    //50ms ÒÆ¶¯Ò»¸ñ
+    //50ms ç§»åŠ¨ä¸€æ ¼
     m_PillarMoveTimer.setTimer(50,std::bind(&GameCtrl::movePillar,this));
     m_PillarMoveTimer.start();
 
-    //100ms ÒÆ¶¯Ğ¡Äñ£¬²¢Åö×²¼ì²â
+    //100ms ç§»åŠ¨å°é¸Ÿï¼Œå¹¶ç¢°æ’æ£€æµ‹
     m_birdMoveTimer.setTimer(100, std::bind(&GameCtrl::moveBird,this));
     m_birdMoveTimer.start();
 
-    //¼üÅÌ¼ì²â
+    //é”®ç›˜æ£€æµ‹
     m_birdSpaceCheckTimer.setTimer(10, std::bind(&GameCtrl::keyboardCheck,this));
     m_birdSpaceCheckTimer.start();
 }
 
 void GameCtrl::gameOver()
 {
+    m_score = 0;
     m_PillarCreateTimer.stop();
     m_PillarMoveTimer.stop();
     m_birdMoveTimer.stop();
@@ -57,8 +59,8 @@ void GameCtrl::gameOver()
 
     gotoxy(0,0);
     setConsoleCursor(true);
-    std::cout <<"ÄúÒÑ¾­ËÀÍö£¬ÊÇ·ñÖØĞÂ¿ªÊ¼ÓÎÏ·\n";
-    std::cout <<"ÊäÈëyÖØĞÂ¿ªÊ¼£¬ÊäÈën½áÊøÓÎÏ·:";
+    std::cout <<"You have died, do you want to restart the game\n";
+    std::cout <<"input y to restart and n to end the game:";
 
     INPUT:
     char ch;
@@ -96,14 +98,19 @@ void GameCtrl::movePillar()
 void GameCtrl::moveBird()
 {
     m_bird.move();
-    //¼ì²âÅö×²
+    //æ£€æµ‹ç¢°æ’
     if (m_manager.checkCrash(m_bird.getBirdRect()))
         gameOver();
 
-    //ÉÏÏÂÇ½±Ú
+    //ä¸Šä¸‹å¢™å£
     if (m_bird.getBirdRect().getBottomLeft().y() >= HEIGHT - 2
             || m_bird.getBirdRect().getTopLeft().y() <= 1)
         gameOver();
+
+    m_manager.calcScore(m_score);
+    //æ˜¾ç¤ºåˆ†æ•°
+    gotoxy(WIDTH/2,0);
+    std::cout << "score:"<<m_score;
 }
 
 void GameCtrl::keyboardCheck()

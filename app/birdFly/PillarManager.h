@@ -12,6 +12,7 @@ public:
     void move();
     bool checkCrash(Rect birdRect);
     void clear();
+    void calcScore(int &score);
 
 private:
     std::vector<Pillar *> m_allPillar;

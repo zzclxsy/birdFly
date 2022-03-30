@@ -23,9 +23,9 @@ void setConsoleCursor(bool show)
 {
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO CursorInfo;
-    GetConsoleCursorInfo(handle, &CursorInfo);//»ñÈ¡¿ØÖÆÌ¨¹â±êĞÅÏ¢
-    CursorInfo.bVisible = show; //Òş²Ø¿ØÖÆÌ¨¹â±ê
-    SetConsoleCursorInfo(handle, &CursorInfo);//ÉèÖÃ¿ØÖÆÌ¨¹â±ê×´Ì¬
+    GetConsoleCursorInfo(handle, &CursorInfo);//è·å–æ§åˆ¶å°å…‰æ ‡ä¿¡æ¯
+    CursorInfo.bVisible = show; //éšè—æ§åˆ¶å°å…‰æ ‡
+    SetConsoleCursorInfo(handle, &CursorInfo);//è®¾ç½®æ§åˆ¶å°å…‰æ ‡çŠ¶æ€
 }
 void gotoxy(int x, int y)
 {

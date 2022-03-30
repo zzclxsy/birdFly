@@ -27,10 +27,11 @@ private:
     XTimerEvent m_birdMoveTimer;
     XTimerEvent m_birdSpaceCheckTimer;
 
-    //创建柱子
+    //鍒涘缓鏌卞瓙
     PillarManager m_manager;
-    //创建小鸟
+    //鍒涘缓灏忛笩
     Bird m_bird;
+    int m_score;
 };
 
 #endif // GAMECTRL_H

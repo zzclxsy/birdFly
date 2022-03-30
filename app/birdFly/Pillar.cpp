@@ -69,8 +69,8 @@ void Pillar::draw()
     if (mb_isDie)
         return;
 
-	//Öù×ÓÇå³ı
-	int heightTop = m_height;
+	//æŸ±å­æ¸…é™¤
+    int heightTop = m_height;
 	Point beforePosTop = m_beforePos;
 	if (!(beforePosTop == Point(0,0)))
 	{
@@ -98,8 +98,8 @@ void Pillar::draw()
 		}
 	}
 
-	//ÒÆ¶¯Öù×Ó
-    //ÅĞ¶ÏÊÇ·ñ¹ı×î×ó±ß£¬¿í¶ÈÂıÂı¼õÉÙ£¬Ö±µ½Îª0
+	//ç§»åŠ¨æŸ±å­
+    //åˆ¤æ–­æ˜¯å¦è¿‡æœ€å·¦è¾¹ï¼Œå®½åº¦æ…¢æ…¢å‡å°‘ï¼Œç›´åˆ°ä¸º0
     if (m_originPos.x() < 0)
     {
         if (m_width + m_originPos.x() <= 0)
@@ -110,7 +110,7 @@ void Pillar::draw()
         m_width = m_width + m_originPos.x();
         m_originPos.setX(0);
     }
-    //Æå×Ó´Ó×îÓÒ±ß²úÉú, ¿í¶ÈÂıÂı±ä´ó£¬Ö±µ½Ä¿µÄ¿í¶È
+    //æ£‹å­ä»æœ€å³è¾¹äº§ç”Ÿ, å®½åº¦æ…¢æ…¢å˜å¤§ï¼Œç›´åˆ°ç›®çš„å®½åº¦
     static int recordWidth = m_width;
     if (WIDTH - m_originPos.x() <= recordWidth)
     {

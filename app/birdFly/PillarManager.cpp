@@ -57,3 +57,15 @@ void PillarManager::clear()
     }
     m_allPillar.clear();
 }
+
+void PillarManager::calcScore(int &score)
+{
+   static Pillar *record = nullptr;
+   if (m_allPillar.front()->getRectTop().getTopLeft().x() < 20)
+   {
+       if (record != m_allPillar.front())
+            score++;
+
+       record = m_allPillar.front();
+   }
+}
